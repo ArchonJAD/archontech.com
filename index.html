@@ -3,411 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archon Tech - Portfolio</title>
-    <meta name="description" content="Archon Tech offers innovative software solutions including web development, mobile apps, and cloud services.">
-    <meta name="keywords" content="web development, Archon Tech">
-    <meta name="author" content="Archon Tech">
+
+    <!-- SEO – TAMIL NADU REMOVED, PURE CHENNAI + COIMBATORE + KERALA FOCUS -->
+    <title> Archon Tech</title>
+    <meta name="description" content="Archon Tech – Leading website development company in Chennai & Coimbatore. We build modern responsive websites, e-commerce stores, SEO & digital marketing at affordable prices. Get free mockup on WhatsApp!">
+    <meta name="keywords" content="website development chennai, web design company chennai, website development coimbatore, ecommerce website chennai, digital marketing chennai, seo company chennai, low cost website chennai, best web developers coimbatore, responsive website kerala">
+
+    <meta property="og:title" content="Archon Tech – Best Website Development Company in Chennai & Coimbatore">
+    <meta property="og:description" content="Modern websites, e-commerce, SEO & WhatsApp marketing – Free mockup in 5 mins!">
+    <meta property="og:image" content="logo13.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="logo13.png" type="image/x-icon">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+        :root{
+            --primary:#1a73e8;
+            --about-1:url('a1.jpg');--about-2:url('a2.jpg');--about-3:url('a3.jpg');
+            --service-1:url('c1.jpg');--service-2:url('c2.jpg');--service-3:url('c3.jpg');
+            --service-4:url('c4.jpg');--service-5:url('c5.jpg');
         }
+        body{line-height:1.7;color:#333;overflow-x:hidden;background:#fff}
+        header{background:#fff;padding:1rem 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+        nav{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+        nav .logo h1{font-size:1.7rem;color:var(--primary);font-weight:700}
+        nav .logo img{height:42px}
+        .hamburger{display:none;font-size:1.8rem;cursor:pointer;color:var(--primary)}
+        .nav-links{display:flex;gap:35px}
+        .nav-links a{color:#444;text-decoration:none;font-weight:500;font-size:1.05rem;transition:color .3s}
+        .nav-links a:hover{color:var(--primary)}
+        section{padding:100px 20px;max-width:1200px;margin:0 auto}
+        #home{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white}
+        .home-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+        .home-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.7));z-index:-1}
+        #home h1{font-size:3.4rem;margin-bottom:20px;text-shadow:0 4px 15px rgba(0,0,0,0.6)}
+        #home p{font-size:1.35rem;max-width:750px;margin:0 auto 40px}
+        .cta-button{padding:16px 40px;background:var(--primary);color:white;border-radius:50px;text-decoration:none;font-weight:600;font-size:1.1rem;box-shadow:0 10px 25px rgba(26,115,232,0.3);transition:all .3s}
+        .cta-button:hover{background:#0d47a1;transform:translateY(-4px)}
+        h2{text-align:center;font-size:2.6rem;margin-bottom:60px;color:#222;position:relative}
+        h2::after{content:'';width:90px;height:5px;background:var(--primary);display:block;margin:18px auto;border-radius:3px}
+        .about-grid,.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+        .about-card,.service-card{position:relative;background-size:cover;background-position:center;border-radius:18px;overflow:hidden;height:280px;padding:30px;color:white;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(40px);transition:all .6s;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+        .about-card::before,.service-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,115,232,0.75),rgba(0,0,0,0.65));z-index:1}
+        .about-card > *,.service-card > *{position:relative;z-index:2}
+        .about-card.visible,.service-card.visible{opacity:1;transform:translateY(0)}
+        .about-card:hover,.service-card:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+        .about-card:nth-child(1){background-image:var(--about-1)}.about-card:nth-child(2){background-image:var(--about-2)}.about-card:nth-child(3){background-image:var(--about-3)}
+        .service-card:nth-child(1){background-image:var(--service-1)}.service-card:nth-child(2){background-image:var(--service-2)}
+        .service-card:nth-child(3){background-image:var(--service-3)}.service-card:nth-child(4){background-image:var(--service-4)}.service-card:nth-child(5){background-image:var(--service-5)}
+        .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:50px;justify-items:center}
+        .team-card{text-align:center;opacity:0;transform:translateY(30px);transition:all .6s}
+        .team-card.visible{opacity:1;transform:translateY(0)}
+        .team-card:hover{transform:translateY(-12px)}
+        .team-card .circle-img{width:200px;height:200px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:8px solid #fff;box-shadow:0 15px 40px rgba(0,0,0,0.25)}
+        .team-card img{width:100%;height:100%;object-fit:cover}
+        .team-card h3 a{color:var(--primary);font-size:1.35rem;text-decoration:none;font-weight:600}
+        .team-card h3 a:hover{text-decoration:underline}
+        .team-card p{color:#555;font-style:italic;margin-top:8px}
+        .trust-badges{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:70px 0}
+        .trust-badges img{width:120px;height:120px;object-fit:contain;padding:15px;background:white;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,0.12);transition:all .3s}
+        .trust-badges img:hover{transform:scale(1.12)}
+        #contact form{max-width:650px;margin:0 auto;background:#f8f9fa;padding:45px;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,0.1)}
+        #contact input,#contact textarea{width:100%;padding:16px;border:1px solid #ddd;border-radius:12px;margin-bottom:20px;font-size:1rem}
+        #contact button{width:100%;padding:16px;background:var(--primary);color:white;border:none;border-radius:12px;font-size:1.2rem;font-weight:600;cursor:pointer;transition:.3s}
+        #contact button:hover{background:#0d47a1}
+        .whatsapp-cta-badge{background:#25d366;color:white;padding:35px 50px;border-radius:25px;text-align:center;max-width:700px;margin:80px auto;box-shadow:0 25px 60px rgba(37,193,92,0.35);font-size:1.7rem;font-weight:bold}
+        .whatsapp-cta-badge a{color:white;text-decoration:none}
+        .wa-float{position:fixed;bottom:25px;right:25px;z-index:9999}
+        .wa-float img{width:70px;border-radius:50%;box-shadow:0 12px 35px rgba(37,193,92,0.5);animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+        footer{background:#111;color:#ccc;text-align:center;padding:50px 20px}
+        .social-links a{color:var(--primary);margin:0 15px;text-decoration:none;font-weight:500}
 
-        :root {
-            --about-1: url('a1.jpg');     
-            --about-2: url('a2.jpg');    
-            --about-3: url('a3.jpg');    
-
-            --service-1: url('c1.jpg');     
-            --service-2: url('c2.jpg');     
-            --service-3: url('c3.jpg');     
-            --service-4: url('c4.jpg');     
-            --service-5: url('c5.jpg');     
-
-            --team-1: url('team1.jpg');     
-            --team-2: url('team2.jpg');    
-            --team-3: url('team3.jpg');    
-            --team-4: url('team4.jpg');    
-        }
-
-        body {
-            line-height: 1.6;
-            color: #3144ee;
-            overflow-x: hidden;
-        }
-
-        header {
-            background-color: #fff;
-            color: rgb(100, 153, 223);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        nav .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        nav .logo h1 {
-            font-size: 1.5rem;
-            color: rgb(100, 153, 223);
-        }
-
-        nav .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: rgb(129, 68, 187);
-            user-select: none;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links li a {
-            color: rgb(129, 68, 187);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .nav-links li a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        #home {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-            overflow: hidden;
-            color: white;
-        }
-
-        .home-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
-
-        .home-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(131, 130, 130, 0.4), rgba(0,0,0,0.6));
-            z-index: -1;
-        }
-
-        .home-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        #home h1 { 
-            font-size: 2.8rem; 
-            margin-bottom: 20px; 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        #home p { 
-            font-size: 1.3rem; 
-            max-width: 700px; 
-            margin: 0 auto 30px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 14px 28px;
-            background-color: #1a73e8;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
-        }
-        .cta-button:hover { 
-            background-color: #1557b0; 
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(26, 115, 232, 0.4);
-        }
-
-        h2 { 
-            font-size: 2.2rem; 
-            margin-bottom: 40px; 
-            text-align: center; 
-            color: #333;
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: #1a73e8;
-            display: block;
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        .about-grid, .service-grid, .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .about-card, .service-card, .team-card {
-            position: relative;
-            padding: 30px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(38, 18, 224, 0.1);
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all .6s ease;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-            color: white;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-            min-height: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .about-card::before,
-        .service-card::before,
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(58, 28, 192, 0.5), rgba(51, 33, 211, 0.5));
-            z-index: 1;
-        }
-
-        .about-card > *, .service-card > *, .team-card > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-card.visible,
-        .service-card.visible,
-        .team-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .about-card:hover,
-        .service-card:hover,
-        .team-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 25px rgba(0,0,0,.2);
-        }
-
-        .about-card:nth-child(1) { background-image: var(--about-1); }
-        .about-card:nth-child(2) { background-image: var(--about-2); }
-        .about-card:nth-child(3) { background-image: var(--about-3); }
-
-        .service-card:nth-child(1) { background-image: var(--service-1); }
-        .service-card:nth-child(2) { background-image: var(--service-2); }
-        .service-card:nth-child(3) { background-image: var(--service-3); }
-        .service-card:nth-child(4) { background-image: var(--service-4); }
-        .service-card:nth-child(5) { background-image: var(--service-5); }
-
-        .team-card:nth-child(1) { background-image: var(--team-1); }
-        .team-card:nth-child(2) { background-image: var(--team-2); }
-        .team-card:nth-child(3) { background-image: var(--team-3); }
-        .team-card:nth-child(4) { background-image: var(--team-4); }
-
-        .team-card img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 8px rgba(39, 9, 211, 0.2);
-        }
-
-        .team-card h3 a {
-            color: #ff2222;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        .team-card h3 a:hover { text-decoration: underline; }
-        .team-card p { 
-            font-style: italic; 
-            color: #eee; 
-            font-size: 0.95rem;
-        }
-
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        #contact input, #contact textarea {
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border 0.3s;
-        }
-        #contact input:focus, #contact textarea:focus {
-            outline: none;
-            border-color: #1a73e8;
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
-        }
-        #contact button {
-            padding: 14px;
-            background: #1a73e8;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        #contact button:hover { 
-            background: #1557b0; 
-        }
-        #contact .support-email { 
-            margin-top: 25px; 
-            text-align: center; 
-            font-size: 0.95rem;
-        }
-        #contact .support-email a { 
-            color: #1a73e8; 
-            text-decoration: none; 
-            font-weight: 500;
-        }
-        #contact .support-email a:hover { 
-            text-decoration: underline; 
-        }
-
-        footer {
-            background: #222;
-            color: #ddd;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9rem;
-        }
-        .social-links a {
-            color: #1a73e8;
-            margin: 0 12px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .social-links a:hover { 
-            text-decoration: underline; 
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { 
-                display: block; 
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #1a73e8;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links li { 
-                margin: 12px 0; 
-            }
-            .nav-links li a {
-                color: white;
-                font-size: 1.1rem;
-            }
-            #home h1 { 
-                font-size: 2.2rem; 
-            }
-            #home p { 
-                font-size: 1.1rem; 
-            }
-            .about-grid, .service-grid, .team-grid { 
-                grid-template-columns: 1fr; 
-            }
-            nav .logo img { 
-                height: 32px; 
-            }
-            nav .logo h1 { 
-                font-size: 1.3rem; 
-            }
-            section { 
-                padding: 80px 15px; 
-            }
-            .home-content {
-                padding: 0 15px;
-            }
+        @media (max-width:768px){
+            .hamburger{display:block}
+            .nav-links{position:absolute;top:70px;left:0;width:100%;background:var(--primary);flex-direction:column;padding:20px 0;display:none}
+            .nav-links.active{display:flex}
+            .nav-links a{color:white;padding:15px;font-size:1.2rem}
+            #home h1{font-size:2.6rem}
+            .team-card .circle-img{width:170px;height:170px}
+            .trust-badges img{width:90px;height:90px}
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav>
             <div class="logo">
                 <h1>Archon Tech</h1>
-                <img src="logo13.png" alt="Archon Tech Logo">
+                <img src="logo13.png" alt="Archon Tech – Website Development Company ">
             </div>
-            <div class="hamburger" aria-label="Toggle menu" aria-expanded="false">Menu</div>
+            <div class="hamburger">Menu</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -421,170 +110,106 @@
     <section id="home">
         <video autoplay muted loop playsinline class="home-video">
             <source src="h1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
         <div class="home-overlay"></div>
-        <div class="home-content">
-            <h1>Welcome to Archon Tech</h1>
-            <p>We deliver cutting-edge software solutions to empower your business in the digital age.</p>
-            <a href="#contact" class="cta-button">Get Started</a>
+        <div style="max-width:900px;">
+            <h1>Best Website Development Company</h1>
+            <p>Modern, responsive websites & e-commerce stores that grow your business fast</p>
+            <a href="#contact" class="cta-button">Get Quote</a>
+            <a href="https://wa.me/918056394297" style="display:inline-block;margin-left:20px;background:#25d366;color:white;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:bold;">
+                Free Mockup on WhatsApp
+            </a>
         </div>
     </section>
 
     <section id="about">
-        <h2>About Us</h2>
+        <h2>Leading Web Design Company </h2>
         <div class="about-grid">
-            <div class="about-card">
-                <h3>Who We Are</h3>
-                <p>We are a creative tech team passionate about building smart digital solutions. At Archon Tech, we combine design, innovation, and technology to help businesses establish a strong online presence.</p>
-            </div>
-            <div class="about-card">
-                <h3>What We Do</h3>
-                <p>We specialize in website development, digital marketing, and branding. From crafting responsive websites to boosting visibility with SEO, we deliver complete digital growth solutions tailored to your business needs.</p>
-            </div>
-            <div class="about-card">
-                <h3>Our Vision</h3>
-                <p>To empower businesses with modern, scalable, and result-driven digital solutions that inspire growth and create a lasting impact in the digital world.</p>
-            </div>
+            <div class="about-card"><h3>Who We Are</h3><p>Top-rated website development company serving Chennai, Coimbatore & Kerala</p></div>
+            <div class="about-card"><h3>What We Do</h3><p>Custom websites, e-commerce, SEO & digital marketing solutions</p></div>
+            <div class="about-card"><h3>Our Vision</h3><p>To help every small business get a powerful online presence</p></div>
+        </div>
+
+        <div class="trust-badges">
+            <img src="b1.jpg" alt="Google Partner – Website Development Chennai">
+            <img src="b2.jpg" alt="Trusted Web Design Company Coimbatore">
+            <img src="b3.jpg" alt="100+ Happy Clients in Chennai">
+            <img src="b4.jpg" alt="5-Star Rated Website Company">
+            <img src="b5.jpg" alt="Best Digital Marketing Agency Chennai">
         </div>
     </section>
 
     <section id="team">
-        <h2>Our Team</h2>
+        <h2>Our Expert Team </h2>
         <div class="team-grid">
             <div class="team-card">
-                <img src="founder.png" alt="Abinaya Sri - Founder">
-                <h3><a href="https://archonjad.github.io/abinaya/" target="_blank">Abinaya Sri</a></h3>
-                <p>Founder</p>
+                <div class="circle-img"><img src="founder.png" alt="Abinaya Sri – Founder Archon Tech Chennai"></div>
+                <h3><a href="https://archonjad.github.io/abinaya/" target="_blank">Abinaya Sri</a></h3><p>Founder</p>
             </div>
             <div class="team-card">
-                <img src="founder.png" alt="Janaganandhini - Co-Founder">
-                <h3><a href="https://janaganandhini996.github.io/portfolio-nandhini" target="_blank">Janaganandhini</a></h3>
-                <p>Co-Founder</p>
+                <div class="circle-img"><img src="founder.png" alt="Janaganandhini – Co-Founder"></div>
+                <h3><a href="https://janaganandhini996.github.io/portfolio-nandhini" target="_blank">Janaganandhini</a></h3><p>Co-Founder</p>
             </div>
             <div class="team-card">
-                <img src="eo.png" alt="Vel Murugan - Executive Officer">
-                <h3><a href="https://example.com/member3" target="_blank">Vel Murugan</a></h3>
-                <p>Executive Officer</p>
+                <div class="circle-img"><img src="eo.png" alt="Vel Murugan – Executive Officer"></div>
+                <h3><a href="#" target="_blank">Vel Murugan</a></h3><p>Executive Officer</p>
             </div>
             <div class="team-card">
-                <img src="dm.png" alt="Afna Fathima - Digital Marketer">
-                <h3><a href="https://digitalmarketer-source.github.io/portfolio__/" target="_blank">Afna Fathima</a></h3>
-                <p>Digital Marketer</p>
+                <div class="circle-img"><img src="dm.png" alt="Afna Fathima – Digital Marketer Chennai"></div>
+                <h3><a href="https://digitalmarketer-source.github.io/portfolio__/" target="_blank">Afna Fathima</a></h3><p>Digital Marketer</p>
             </div>
         </div>
     </section>
 
     <section id="services">
-        <h2>Our Services</h2>
+        <h2>Website Development & Digital Marketing Services</h2>
         <div class="service-grid">
-            <div class="service-card">
-                <h3>Website Development</h3>
-                <p>Crafting modern, responsive, and high-performance websites that reflect your brand and drive results.</p>
-            </div>
-            <div class="service-card">
-                <h3>E-Commerce Solution</h3>
-                <p>Launch your online store with secure payment integration, easy management, and smooth shopping experience.</p>
-            </div>
-            <div class="service-card">
-                <h3>Digital Marketing</h3>
-                <p>Boost your online visibility with smart digital strategies that connect you with your audience and grow your business.</p>
-            </div>
-            <div class="service-card">
-                <h3>SEO Optimization</h3>
-                <p>Improve your Google ranking and attract organic traffic with expert SEO techniques tailored to your business.</p>
-            </div>
-            <div class="service-card">
-                <h3>Website Maintenance</h3>
-                <p>Keep your website fast, secure, and up-to-date with our reliable maintenance and support services.</p>
-            </div>
+            <div class="service-card"><h3>Website Development Chennai</h3><p>Fast, modern & mobile-friendly websites</p></div>
+            <div class="service-card"><h3>E-Commerce Website Coimbatore</h3><p>Full online store with payment gateway</p></div>
+            <div class="service-card"><h3>Digital Marketing Chennai</h3><p>Google Ads, Instagram & Facebook marketing</p></div>
+            <div class="service-card"><h3>SEO Services Chennai</h3><p>Rank higher on Google search results</p></div>
+            <div class="service-card"><h3>Website Maintenance</h3><p>Monthly updates & support</p></div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>Contact Us </h2>
         <form id="contact-form" action="https://formspree.io/f/xabc1234" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p class="support-email">For support: <a href="mailto:founder.archon@gmail.com">founder.archon@gmail.com</a></p>
+        <p style="text-align:center;margin-top:25px;">Email: <a href="mailto:founder.archon@gmail.com">founder.archon@gmail.com</a></p>
+    </section>
+
+    <section style="background:#f8f9fa;padding:100px 20px;text-align:center;">
+        <div class="whatsapp-cta-badge">
+            <a href="https://wa.me/918056394297?text=Hi!%20Send%20me%20a%20free%20website%20mockup%20">
+                Get Your FREE Website Mockup + Video Audit on WhatsApp<br>
+                <small style="font-size:1rem;">Instant reply • No commitment</small>
+            </a>
+        </div>
     </section>
 
     <footer>
-        <p>@2025 Archon Tech. All rights reserved.</p>
+        <p>© 2025 Archon Tech – Website Development Company TamilNadu</p>
         <div class="social-links">
-            <a href="https://www.instagram.com/archon_tech/?igsh=MTlkYXZuN2p0c2o0Nw%3D%3D#" target="_blank">Instagram</a> |
-            <a href="https://linkedin.com/in/archon-tech-66a512380" target="_blank">LinkedIn</a> |
+            <a href="https://instagram.com/archon_tech" target="_blank">Instagram</a> |
+            <a href="https://linkedin.com/company/archon-tech" target="_blank">LinkedIn</a> |
             <a href="https://github.com/ArchonJAD" target="_blank">GitHub</a>
         </div>
     </footer>
 
+    <a href="https://wa.me/918056394297" class="wa-float">
+        <img src="w1.jpg" alt="WhatsApp Archon Tech – Website Development Chennai">
+    </a>
+
     <script>
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                const offset = 80;
-                window.scrollTo({
-                    top: target.offsetTop - offset,
-                    behavior: 'smooth'
-                });
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-            hamburger.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('active');
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.about-card, .service-card, .team-card')
-            .forEach(card => observer.observe(card));
-
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const button = form.querySelector('button');
-            button.disabled = true;
-            button.textContent = 'Sending...';
-
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Thank you! Your message has been sent successfully.');
-                    form.reset();
-                } else {
-                    alert('Oops! There was a problem sending your message. Please try again.');
-                }
-            })
-            .catch(() => {
-                alert('Network error. Please check your connection and try again.');
-            })
-            .finally(() => {
-                button.disabled = false;
-                button.textContent = 'Send Message';
-            });
-        });
+        document.querySelector('.hamburger').addEventListener('click',()=>{document.querySelector('.nav-links').classList.toggle('active')});
+        document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});document.querySelector('.nav-links').classList.remove('active')})});
+        const observer=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.about-card,.service-card,.team-card').forEach(el=>observer.observe(el));
     </script>
 </body>
-
 </html>
